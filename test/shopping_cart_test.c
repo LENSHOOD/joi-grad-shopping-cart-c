@@ -70,3 +70,25 @@ void shopping_cart_test_should_calculate_loyalty_points_for_15_percent_discount(
 
     CU_ASSERT_EQUAL(order.loyalty_points, 6);
 }
+
+void shopping_cart_test_should_calculate_price_for_20_percent_discount(void) {
+    Product products[] = {
+            {kPrice, "DIS_20_ABCD", kProduct}
+    };
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_DOUBLE_EQUAL(order.total_price, 80.0, 0.0);
+}
+
+void shopping_cart_test_should_calculate_loyalty_points_for_20_percent_discount(void) {
+    Product products[] = {
+            {kPrice, "DIS_20_ABCD", kProduct}
+    };
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_EQUAL(order.loyalty_points, 5);
+}

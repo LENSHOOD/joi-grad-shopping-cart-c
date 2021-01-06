@@ -27,7 +27,11 @@ int main(int argc, char **argv) {
         NULL == CU_add_test(pSuite, "calculate price for 15 percent discount",
                             shopping_cart_test_should_calculate_price_for_15_percent_discount) ||
         NULL == CU_add_test(pSuite, "calculate loyalty points for 15 percent discount",
-                            shopping_cart_test_should_calculate_loyalty_points_for_15_percent_discount)) {
+                            shopping_cart_test_should_calculate_loyalty_points_for_15_percent_discount) ||
+        NULL == CU_add_test(pSuite, "calculate price for 20 percent discount",
+                            shopping_cart_test_should_calculate_price_for_20_percent_discount) ||
+        NULL == CU_add_test(pSuite, "calculate loyalty points for 20 percent discount",
+                            shopping_cart_test_should_calculate_loyalty_points_for_20_percent_discount)) {
         CU_cleanup_registry();
         return CU_get_error();
     }

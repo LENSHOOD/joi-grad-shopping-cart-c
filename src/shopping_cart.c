@@ -42,6 +42,9 @@ Order shopping_cart_checkout(const ShoppingCart *cart) {
         } else if (strstr(product_code, "DIS_15") == product_code) {
             discount = (product_price * 0.15);
             loyalty_points_earned += (product_price / 15);
+        } else if (strstr(product_code, "DIS_20") == product_code) {
+            discount = (product_price * 0.2);
+            loyalty_points_earned += (product_price / 20);
         } else {
             loyalty_points_earned += (product_price / 5);
         }
