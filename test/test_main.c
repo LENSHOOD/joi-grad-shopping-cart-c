@@ -31,7 +31,28 @@ int main(int argc, char **argv) {
         NULL == CU_add_test(pSuite, "calculate price for 20 percent discount",
                             shopping_cart_test_should_calculate_price_for_20_percent_discount) ||
         NULL == CU_add_test(pSuite, "calculate loyalty points for 20 percent discount",
-                            shopping_cart_test_should_calculate_loyalty_points_for_20_percent_discount)) {
+                            shopping_cart_test_should_calculate_loyalty_points_for_20_percent_discount) ||
+        NULL == CU_add_test(pSuite, "calculate price for buy 2 get 1",
+                            shopping_cart_test_should_calculate_price_for_buy_2_get_1) ||
+        NULL == CU_add_test(pSuite, "calculate loyalty points for buy 2 get 1",
+                            shopping_cart_test_should_calculate_loyalty_points_for_buy_2_get_1) ||
+        NULL == CU_add_test(pSuite, "calculate price for buy 2 get 1 with two products",
+                            shopping_cart_test_should_calculate_price_for_buy_2_get_1_with_two_products) ||
+        NULL == CU_add_test(pSuite, "calculate loyalty points for buy 2 get 1 with two products",
+                            shopping_cart_test_should_calculate_loyalty_points_for_buy_2_get_1_two_products) ||
+        NULL == CU_add_test(pSuite, "calculate price for buy 2 get 1 with different products",
+                            shopping_cart_test_should_calculate_price_for_buy_2_get_1_with_different_products) ||
+        NULL == CU_add_test(pSuite, "calculate loyalty points for buy 2 get 1 with different products",
+                            shopping_cart_test_should_calculate_loyalty_points_for_buy_2_get_1_different_products) ||
+        NULL == CU_add_test(pSuite, "calculate price for buy 2 get 1 with 5 same products",
+                            shopping_cart_test_should_calculate_price_for_buy_2_get_1_with_5_same_products) ||
+        NULL == CU_add_test(pSuite, "calculate loyalty points for buy 2 get 1 with 5 same products",
+                            shopping_cart_test_should_calculate_loyalty_points_for_buy_2_get_1_with_5_same_products) ||
+        NULL == CU_add_test(pSuite, "calculate price for buy 2 get 1 with 6 same products",
+                            shopping_cart_test_should_calculate_price_for_buy_2_get_1_with_6_same_products) ||
+        NULL == CU_add_test(pSuite, "calculate loyalty points for buy 2 get 1 with 6 same products",
+                            shopping_cart_test_should_calculate_loyalty_points_for_buy_2_get_1_with_6_same_products)
+        ) {
         CU_cleanup_registry();
         return CU_get_error();
     }

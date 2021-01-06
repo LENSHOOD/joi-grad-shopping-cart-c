@@ -92,3 +92,151 @@ void shopping_cart_test_should_calculate_loyalty_points_for_20_percent_discount(
 
     CU_ASSERT_EQUAL(order.loyalty_points, 5);
 }
+
+void shopping_cart_test_should_calculate_price_for_buy_2_get_1(void) {
+    Product products[] = {
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+    };
+
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_EQUAL(order.total_price, 200)
+}
+
+void shopping_cart_test_should_calculate_loyalty_points_for_buy_2_get_1(void) {
+    Product products[] = {
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+    };
+
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_EQUAL(order.loyalty_points, 40)
+}
+
+void shopping_cart_test_should_calculate_price_for_buy_2_get_1_with_two_products(void) {
+    Product products[] = {
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+    };
+
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_EQUAL(order.total_price, 200)
+}
+
+void shopping_cart_test_should_calculate_loyalty_points_for_buy_2_get_1_two_products(void) {
+    Product products[] = {
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+    };
+
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_EQUAL(order.loyalty_points, 40)
+}
+
+void shopping_cart_test_should_calculate_price_for_buy_2_get_1_with_different_products(void) {
+    Product products[] = {
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "DIS_20_ABCD", kProduct},
+    };
+
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_EQUAL(order.total_price, 280)
+}
+
+void shopping_cart_test_should_calculate_loyalty_points_for_buy_2_get_1_different_products(void) {
+    Product products[] = {
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "DIS_20_ABCD", kProduct},
+    };
+
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_EQUAL(order.loyalty_points, 45)
+}
+
+void shopping_cart_test_should_calculate_price_for_buy_2_get_1_with_5_same_products(void) {
+    Product products[] = {
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+    };
+
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_EQUAL(order.total_price, 400)
+}
+
+void shopping_cart_test_should_calculate_loyalty_points_for_buy_2_get_1_with_5_same_products(void) {
+    Product products[] = {
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+    };
+
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_EQUAL(order.loyalty_points, 80)
+}
+
+void shopping_cart_test_should_calculate_price_for_buy_2_get_1_with_6_same_products(void) {
+    Product products[] = {
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+    };
+
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_EQUAL(order.total_price, 400)
+}
+
+void shopping_cart_test_should_calculate_loyalty_points_for_buy_2_get_1_with_6_same_products(void) {
+    Product products[] = {
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+            {kPrice, "BULK_BUY_2_GET_1", kProduct},
+    };
+
+    Customer customer = {"test"};
+    ShoppingCart shoppingCart = shopping_cart_init(products, sizeof(products) / sizeof(Product), customer);
+    Order order = shopping_cart_checkout(&shoppingCart);
+
+    CU_ASSERT_EQUAL(order.loyalty_points, 80)
+}
